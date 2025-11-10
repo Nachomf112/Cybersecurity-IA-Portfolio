@@ -1,0 +1,57 @@
+---
+title: "AuthLog Auto Reporter"
+slug: "authlog-auto-reporter"
+summary: "Herramienta en línea de comandos para analizar auth.log (SSH/sudo) y generar un informe en Markdown listo para un ticket del SOC o un informe técnico."
+startDate: 2024-11-01
+endDate: 2024-11-01
+tags:
+  - blue-team
+  - analisis de log
+  - python
+  - linux
+  - automation
+url: "https://github.com/Nachomf112/authlog-auto-reporter"
+githubUrl: "https://github.com/Nachomf112/authlog-auto-reporter"
+liveUrl: ""
+cover: "/images/authlog-auto/authlog-auto.png"
+ogImage: "/images/authlog-auto/authlog-auto.png"
+---
+
+AuthLog Auto Reporter es una pequeña herramienta en **Python** pensada para
+ayudar a un analista SOC a resumir rápidamente lo más importante de un fichero
+`auth.log` (SSH, sudo, autenticación) sin tener que revisar el log línea a línea.
+
+## ¿Qué hace?
+
+- Lee ficheros de log tipo `auth.log` (SSH, sudo, etc.).
+- Calcula:
+  - IPs con más intentos de login fallidos.
+  - Usuarios más atacados.
+  - Usuarios con logins aceptados.
+- Genera un informe **Markdown** con:
+  - Fichero analizado.
+  - Rango de fechas observado.
+  - Tablas con IPs / usuarios / número de intentos.
+  - Nota final para documentar el incidente en el ticket del SOC.
+
+## Ejemplo de uso
+
+```bash
+source .venv/bin/activate
+python authlog_reporter.py -i samples/auth.log
+
+
+En nano puedes pegar con:
+
+- Botón derecho → **Pegar**, o
+- Si estás en terminal pura: `Shift+Insert`.
+
+### 4️⃣ Guardar y salir
+
+1. **Ctrl+O** → Enter (guardar).
+2. **Ctrl+X** (salir).
+
+Y listo, el paso 2 está hecho. Si quieres, después arrancas la web:
+
+```bash
+npm run dev
