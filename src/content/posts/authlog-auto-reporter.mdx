@@ -1,0 +1,94 @@
+---
+title: "AuthLog Auto Reporter: resúmenes rápidos de auth.log"
+pubDate: "2025-02-10"
+description: "Script en Python que analiza auth.log y genera un informe en Markdown con IPs atacantes, usuarios más atacados y logins aceptados."
+tags: ["blue-team", "python", "linux", "logs", "automation"]
+heroImage: "/images/authlog-auto/authlog-auto.png"
+---
+
+En este artículo explico cómo funciona **AuthLog Auto Reporter** 🧾, una herramienta en Python pensada para ayudar a un analista SOC a **resumir rápidamente lo más importante** de un fichero `auth.log` (SSH, sudo, autenticación) sin tener que leer cientos de líneas a mano.
+
+---
+
+## 🧠 Contexto: ¿por qué este proyecto?
+
+En un SOC es muy habitual encontrarse alertas del tipo:
+
+- *Múltiples intentos fallidos de SSH desde una misma IP.*
+- *Posible fuerza bruta contra cuentas del sistema.*
+- *Acceso SSH exitoso desde una IP poco habitual.*
+
+Cuando esto ocurre, casi siempre acabamos en el mismo sitio:  
+➡️ **`/var/log/auth.log`** (o equivalente según la distro).
+
+El problema es que:
+
+- El log suele ser **muy ruidoso**.
+- Hay muchos eventos repetidos.
+- Es fácil perderse entre intentos fallidos, sesiones abiertas, sudo, etc.
+
+La idea de AuthLog Auto Reporter es muy sencilla:
+
+> “Dame un `auth.log` y te devuelvo un **resumen en Markdown listo para pegar en el ticket** del incidente.”
+
+---
+
+## 🔍 ¿Qué problema resuelve?
+
+En lugar de revisar el `auth.log` línea a línea, el script:
+
+- 🔢 **Agrupa las IPs** con más intentos de login fallidos.
+- 👤 Muestra los **usuarios más atacados**.
+- ✅ Lista los **logins aceptados**, para revisar accesos legítimos o sospechosos.
+- 📄 Genera todo en un **informe Markdown** con tablas que se puede pegar directamente en:
+  - un ticket del SOC,
+  - un informe técnico,
+  - o en una wiki interna.
+
+Esto ahorra tiempo al analista y, sobre todo, **estandariza** la forma de documentar estos casos.
+
+---
+
+## ⚙️ Flujo de uso
+
+1. Exportar o copiar el `auth.log` que quieras analizar:
+
+   ```bash
+   sudo cp /var/log/auth.log samples/auth.log
+
+## 🧾 Ejemplo de informe generado
+
+A continuación tienes un ejemplo real de informe Markdown generado por la herramienta a partir del fichero `samples/auth.log`:
+
+```markdown
+# AuthLog Auto Reporter
+
+Informe generado automáticamente a partir del fichero:
+
+- **Fichero analizado**: `samples/auth.log`
+- **Periodo observado**: 2025-01-10 10:10:10 -> 2025-01-10 10:13:13
+
+## Top IPs con intentos de login fallidos
+
+| IP      | Intentos fallidos |
+|---------|-------------------|
+| 1.2.3.4 | 1                 |
+| 5.6.7.8 | 1                 |
+| 10.0.0.5| 1                 |
+
+## Usuarios más atacados (intentos fallidos)
+
+| Usuario | Intentos fallidos |
+|--------|-------------------|
+| test   | 1                 |
+| root   | 1                 |
+| admin  | 1                 |
+
+## Usuarios con logins aceptados
+
+| Usuario | Logins aceptados |
+|--------|-------------------|
+| nacho  | 1                 |
+
+_Consejo_: copia este informe en el ticket del SOC y añade detalles del caso
+(alerta original, acciones de contención, bloqueo de IPs, etc.).
