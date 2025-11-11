@@ -1,21 +1,28 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 import ProfileInfo from "../components/ProfileInfo.astro";
-import ProfileActionButton from "../components/ProfileActionButton.astro";
-import TabsButtons from "../components/TabsButtons.tsx";
-import ProjectsCC from '@/components/ProjectsCC.astro';
-import AboutMeCC from "../components/AboutMeCC.astro";
 import ProfileFacts from "../components/ProfileFacts.astro";
+import ProfileActionButton from "../components/ProfileActionButton.astro";
+import ProfileQuickLinks from "../components/ProfileQuickLinks.astro";
+import TabsButtons from "../components/TabsButtons.tsx";
+import ProjectsCC from "../components/ProjectsCC.astro";
+import AboutMeCC from "../components/AboutMeCC.astro";
 ---
 
-<Layout title="VicBox Dot Dev | Portfolio" description="A simple portfolio created with Astro." scrollSmooth={false}>
-    <>
-        <ProfileInfo/>
-        <ProfileFacts/>
-        <ProfileActionButton/>
-        <TabsButtons client:idle>
-            <ProjectsCC slot="portfolio"/>
-            <AboutMeCC slot="about"/>
-        </TabsButtons>
-    </>
+<Layout
+  title="Ignacio Menárguez | Portfolio"
+  description="Junior Cybersecurity Analyst | Blue Team | SOC | Automatización con Python/Bash"
+  scrollSmooth={false}
+>
+  <ProfileInfo />
+  <ProfileFacts />
+  <ProfileActionButton />
+
+  <!-- 🔗 Panel de enlaces rápidos, tipo 'link in bio' -->
+  <ProfileQuickLinks />
+
+  <TabsButtons client:idle>
+    <ProjectsCC slot="portfolio" />
+    <AboutMeCC slot="about" />
+  </TabsButtons>
 </Layout>

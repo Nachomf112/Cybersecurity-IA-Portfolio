@@ -1,0 +1,77 @@
+---
+title: "AuthLog Auto Reporter: detectar fuerza bruta SSH desde auth.log"
+pubDate: "2025-02-07"
+description: "Cómo uso mi script AuthLog Auto Reporter para ver IPs sospechosas, cuentas atacadas y logins correctos a partir de auth.log en Linux."
+tags:
+  - blue-team
+  - logs
+  - linux
+  - automation
+  - python
+---
+
+En un entorno SOC es muy habitual revisar el fichero `auth.log` para investigar:
+
+- Intentos de fuerza bruta por SSH.  
+- Cuentas que están siendo atacadas.  
+- Inicios de sesión correctos que pueden ser sospechosos.
+
+Leer el log a mano está bien para casos pequeños, pero cuando tienes **cientos de líneas** se vuelve lento y aburrido.  
+Por eso creé **AuthLog Auto Reporter**: un script en Python que analiza `auth.log` y genera un informe en **Markdown** listo para pegar en un ticket del SOC o en un informe técnico.
+
+## ¿Qué problema resuelve?
+
+Cuando trabajas como analista junior te suelen pedir cosas como:
+
+> “Sácame las IPs que han hecho más intentos fallidos de login”  
+> “Dime qué usuarios están siendo más atacados”  
+> “Comprueba si ha habido logins correctos desde IPs externas”
+
+Hacer eso con `grep` + `less` funciona, pero es fácil saltarse algo y cuesta dejarlo **documentado**.  
+Con este script quería:
+
+- Automatizar el análisis más repetitivo.  
+- Tener siempre el mismo formato de informe.  
+- Ahorrar tiempo a la hora de escribir la parte técnica del ticket.
+
+## ¿Cómo funciona?
+
+El flujo es muy sencillo:
+
+1. Le pasas un fichero de log tipo `auth.log`:
+
+   ```bash
+   source .venv/bin/activate
+   python authlog_reporter.py -i samples/auth.log
+
+# AuthLog Auto Reporter
+
+Informe generado automáticamente a partir del fichero:
+
+- **Fichero analizado**: `samples/auth.log`
+- **Periodo observado**: 2025-01-10 10:10:10 -> 2025-01-10 10:13:13
+
+## Top IPs con intentos de login fallidos
+
+| IP       | Intentos fallidos |
+|---------|-------------------|
+| 1.2.3.4 | 1                 |
+| 5.6.7.8 | 1                 |
+| 10.0.0.5| 1                 |
+
+## Usuarios más atacados (intentos fallidos)
+
+| Usuario | Intentos fallidos |
+|---------|-------------------|
+| test    | 1                 |
+| root    | 1                 |
+| admin   | 1                 |
+
+## Usuarios con logins aceptados
+
+| Usuario | Logins aceptados |
+|---------|------------------|
+| nacho   | 1                |
+
+_Consejo: copia este informe en el ticket del SOC y añade los detalles del caso  
+(alerta original, acciones de contención, bloqueo de IPs, etc.)._
