@@ -31,7 +31,7 @@ Ahí es donde entra **AuthLog Auto Reporter**. El script:
 - Resume los **usuarios que sí han conseguido login**.
 - Deja todo en un **informe Markdown** limpio y directo para el ticket.
 
-La idea es que el analista SOC pase de un log ruidoso a un **resumen accionable** en segundos.
+La idea es que el analista SOC pase de un **log ruidoso** a un **resumen accionable** en segundos. ⚡
 
 ---
 
@@ -45,9 +45,13 @@ A nivel alto, el flujo interno es:
    - IPs con más intentos fallidos.
    - Usuarios más atacados.
    - Usuarios con logins aceptados.
-4. **Genera un informe en Markdown** con tablas sencillas, rango de fechas observado y una pequeña nota final para el ticket.
+4. **Genera un informe en Markdown** con:
+   - Fichero analizado.
+   - Rango de fechas observado.
+   - Tablas con IPs / usuarios / logins.
+   - Una pequeña nota final para el ticket.
 
-El comando básico es:
+El comando básico de uso es:
 
 ```bash
 python authlog_reporter.py -i samples/auth.log
@@ -61,10 +65,10 @@ Informe generado automáticamente a partir del fichero: `samples/auth.log`
 
 ## Top IPs con intentos de login fallidos
 
-| IP       | Intentos fallidos |
-|----------|-------------------|
-| 1.2.3.4  | 10                |
-| 5.6.7.8  | 7                 |
+| IP      | Intentos fallidos |
+|---------|-------------------|
+| 1.2.3.4 | 10                |
+| 5.6.7.8 | 7                 |
 
 ## Usuarios más atacados (intentos fallidos)
 
