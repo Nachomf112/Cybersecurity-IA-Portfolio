@@ -1,15 +1,17 @@
 ---
-// config import
-import { ME } from '@/config'
-
-const { profileFacts } = ME
+import { ME } from "@/config";
+const { profileFacts } = ME;
 ---
 
-<div class="flex justify-between gap-1 text-center">
-    {profileFacts.map((fact) => (
-        <div class="flex flex-col items-center justify-center gap-2">
-            <h3 class="text-md font-bold text-n900 dark:text-n200">{`${fact.value}+`}</h3>
-            <p class="text-sm text-n700 dark:text-n200">{fact.description}</p>
-        </div>
-    ))}
+<div class="grid grid-cols-3 gap-6 text-center mt-8 text-sm">
+  {profileFacts.map((fact) => (
+    <div>
+      <p class="text-2xl font-semibold text-yellow-300">
+        {fact.value}+
+      </p>
+      <p class="mt-1 text-xs text-zinc-400">
+        {fact.description}
+      </p>
+    </div>
+  ))}
 </div>

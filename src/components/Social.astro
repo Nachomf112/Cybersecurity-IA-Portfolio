@@ -1,26 +1,18 @@
 ---
-// components imports
-import {Icon} from "astro-icon/components";
-
-// config import
-import {SOCIALS} from '@/config';
-
+import { Icon } from "astro-icon/components";
+import { SOCIALS } from "@/config";
 ---
 
-<div class={'flex gap-2 md:gap-4'}>
-    {
-        SOCIALS.map((networkS) => (
-            networkS.show && (
-                    <a
-                            class={`${networkS.name} text-xl md:text-2xl text-silver-n500 hover:text-silver-n900 rounded-md p-2 duration-100 hover:bg-neutral-200 dark:hover:bg-n700/40`}
-                            href={networkS.url}
-                            target="_blank"
-                            aria-label={networkS.name + "-link"}
-                    >
-                        <Icon name={networkS.icon} class="text-n500 dark:text-n200"/>
-                    </a>
-            )
-        ))
-    }
+<div class="flex gap-3 md:gap-4">
+  {SOCIALS.map((network) => (
+    <a
+      href={network.url}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${network.name} link`}
+      class="text-xl md:text-2xl text-zinc-100 hover:text-yellow-300 rounded-md p-1 transition-colors"
+    >
+      <Icon name={network.icon} class="w-6 h-6" />
+    </a>
+  ))}
 </div>
-
