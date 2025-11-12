@@ -1,29 +1,36 @@
 ---
-// components imports
 import ProfileImage from "./ProfileImage.astro";
 import Social from "./Social.astro";
-
-// config import
-import { ME } from '@/config';
+import { ME } from "@/config";
 
 const { name, profession, tagline } = ME;
 ---
 
+<div class="w-full flex items-center justify-start mt-5">
+  <div class="flex items-center gap-6 w-full">
+    {/* Avatar con borde amarillo y la imagen visible */}
+    <div class="border-[3px] border-primary-light dark:border-primary-dark p-1.5 rounded-full overflow-hidden">
+      <ProfileImage />
+    </div>
+
+    {/* Nombre + título + tagline */}
     <div class="profile-info flex flex-col gap-2 w-full">
       <div class="info">
-        <h1 class="text-xl md:text-2xl lg:text-4xl xl:text-4xl text-n900 dark:text-white">
+        <h1 class="text-xl md:text-2xl lg:text-4xl xl:text-4xl text-white">
           {name}
         </h1>
 
-        <p class="text-sm text-n500 dark:text-n300">
+        <p class="text-sm text-zinc-300">
           {profession}
         </p>
 
-        <!-- Tagline bien visible -->
-        <p class="text-sm md:text-base text-white font-semibold mt-1">
+        <p class="text-sm md:text-base text-zinc-100 font-semibold mt-1">
           {tagline}
         </p>
       </div>
 
       <Social />
     </div>
+  </div>
+</div>
+
