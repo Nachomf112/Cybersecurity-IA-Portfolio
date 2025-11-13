@@ -60,7 +60,7 @@ const { Content } = await render(post);
   <!-- Contenido MDX con tipografía accesible en fondo oscuro -->
   <article
     id="article"
-    class="mt-10 prose dark:prose-invert lg:prose-lg text-zinc-100
+    class="mt-10 prose dark:prose-invert lg:prose-lg text-zinc-100 force-contrast
            prose-headings:text-white prose-strong:text-zinc-100
            prose-a:text-amber-300 hover:prose-a:text-amber-200
            prose-blockquote:text-zinc-200 prose-code:text-emerald-300
@@ -92,4 +92,21 @@ const { Content } = await render(post);
 
   /* Evitar cortes feos en bloques de código largos */
   .prose pre code { white-space: pre-wrap; word-break: break-word; }
+
+  /* Refuerzo para navegadores embebidos (LinkedIn, IG, etc.) */
+  .force-contrast :where(p, li, em, strong, code, span) {
+    color: #ffffff !important;           /* texto blanco, siempre */
+  }
+  .force-contrast h1,
+  .force-contrast h2,
+  .force-contrast h3,
+  .force-contrast h4 {
+    color: #ffffff !important;           /* títulos siempre blancos */
+  }
+  .force-contrast a {
+    color: #fbbf24 !important;           /* ámbar Tailwind 400 */
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
 </style>
