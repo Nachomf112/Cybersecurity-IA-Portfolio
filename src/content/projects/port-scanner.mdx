@@ -1,40 +1,44 @@
 ---
 title: "Port Scanner — Menárguez_IA Solutions"
 summary: "Escaneos de puertos (rápidos, top1000 y full), validación de autorización y registro de histórico."
-startDate: 2025-11-01        # <- tipo fecha (sin comillas)
-endDate: 2025-11-02          # <- tipo fecha (sin comillas)
-url: "https://clone-portal-mobile-c3jt.bolt.host/"   # <- string
-cover: "./port-scanner.png"  # <- string relativo al MDX (ya lo tienes junto al MDX)
-ogImage: "/og-menarguez-portfolio.png"  # <- string ABSOLUTO (una imagen existente en /public)
-tags: ["Python","FastAPI","Streamlit","Bash","Nmap","mobile"]
+startDate: 2025-11-01
+endDate: 2025-11-01
+order: 2
+url: "https://clone-portal-mobile-c3jt.bolt.host/"
+image: "./port-scanner.png"
+cover: "./port-scanner.png"
+ogImage: "/og-menarguez-portfolio.png"
+tags: ["Python", "FastAPI", "Streamlit", "Bash", "Nmap", "mobile"]
 ---
 
-# 🔎 Port Scanner (Mobile-First)
+# 🔍 Port Scanner (Mobile-First)
 
 Un **port scanner** pensado para móviles, con perfiles de escaneo y una UX cuidada para analistas junior.
 
 <div style={{ margin: '1rem 0' }}>
   <a
-    href="https://clone-portal-mobile-c3jt.bolt.host/"
+    href="https://github.com/Nachomf112/port-scanner-menarguez-ia"
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-amber-400 text-black hover:bg-amber-300 transition"
+    className="inline-flex items-center gap-2 rounded-lg px-3 py-2 bg-amber-400 hover:bg-amber-300 transition"
   >
-    Abrir demo ↗
+    <span style={{ color: '#000', fontWeight: 600 }}>
+      Acceso al GitHub ↗
+    </span>
   </a>
 </div>
 
----
-
 ## ✨ Características clave
-- ⚡ **Perfiles de escaneo**: *Quick*, *Top1000* y *Full*.
+
+- ⭐ **Perfiles de escaneo**: **Quick**, **Top1000** y **Full**.
 - ✅ **Validación de autorización** del objetivo antes de escanear.
 - 🎯 **Puertos personalizados** (coma-separados) cuando lo necesites.
-- 📱 **Mobile-first** con UI clara y botones grandes.
-- 🗂️ **Histórico de escaneos** (idea para la siguiente iteración).
-- 🛡️ **Buenas prácticas**: disclaimers, límites y mensajes claros.
+- 📱 **Mobile-first**, con UI clara y botones grandes.
+- 🧾 **Histórico de escaneos** (ideal para revisar resultados y comparar).
+- 📢 **Buenas prácticas**: disclaimers, límites y mensajes claros para el usuario.
 
 ## 🧭 Flujo de usuario
+
 1. Introduce **IP/host** (por ejemplo, `192.168.1.1` o `example.com`).
 2. Elige perfil: **Quick**, **Top1000** o **Full**.
 3. (Opcional) Añade **puertos personalizados**: `80,443,8080`.
@@ -42,20 +46,24 @@ Un **port scanner** pensado para móviles, con perfiles de escaneo y una UX cuid
 5. Pulsa **Start Scan** ▶️.
 
 ## 🧰 Tecnologías
-- 🐍 **Python** + ⚡ **FastAPI** (backend)
-- 🖥️ **Streamlit** (UI)
-- 🔎 **Nmap** (motor de escaneo)
-- 🐚 **Bash** (automatizaciones)
 
-> ### 🔒 Ética y cumplimiento
-> Escanea **solo** sistemas para los que tengas permiso **explícito**.  
-> La app incluye checkbox de autorización y mensajes preventivos.
+- 🐍 **Python** + ⚡ **FastAPI** (backend original del laboratorio).
+- 🧪 **Streamlit** (UI en la versión de escritorio / laboratorio).
+- 📡 **Nmap** (motor de escaneo).
+- 🧩 **Bash** (automatizaciones y wrappers).
 
-## 🔭 Roadmap breve
-- Exportación de resultados (CSV/JSON/PDF) 📤  
-- Vista **History** con filtros y repetición de escaneos 🕓  
-- Integración con tickets de SOC 📥  
-- Multi-idioma ES/EN 🌍
+## ⚖️ Ética y cumplimiento
+
+- Escanea **solo** sistemas para los que tengas permiso **explícito**.
+- La app y la documentación insisten en autorización previa y mensajes preventivos.
+
+## 🗺️ Roadmap breve
+
+- 📤 Exportación de resultados (CSV/JSON/PDF).
+- 📊 Vista **History** con filtros y repetición de escaneos.
+- 🎟️ Integración con tickets de SOC (copiar/pegar informe rápido).
+- 🌐 Multi-idioma **ES/EN**.
 
 ## 📸 Capturas
-> Si cambias el diseño, añade aquí nuevas imágenes con rutas relativas (por ejemplo `./ui-main.png`).
+
+Si cambias el diseño, añade aquí nuevas imágenes con rutas relativas (por ejemplo, `./ui-main.png`).
