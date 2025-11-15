@@ -1,6 +1,7 @@
 # Ignacio Menárguez — Cybersecurity & IA Portfolio
 
-Portfolio web donde centralizo mis proyectos de **ciberseguridad**, **automatización con IA** y **scripts de soporte para Blue Team / SOC**.
+Portfolio web donde centralizo mis proyectos de **ciberseguridad**, **automatización con IA** y **scripts de soporte para Blue Team / SOC**.[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Visitar-ffcc00?style=for-the-badge)](https://cybersecurity-portfolio-ashy.vercel.app)
+
 
 La web está desplegada en Vercel y sirve como tarjeta de presentación técnica y demo de mis proyectos.
 
