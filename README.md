@@ -50,6 +50,22 @@ La web está desplegada en Vercel y sirve como tarjeta de presentación técnica
 - **Tailwind CSS** para el diseño (tema oscuro + acento amarillo).
 - Despliegue en **Vercel**.
 
+
+## 🗂️ Estructura rápida del repo
+
+```bash
+cybersecurity-portfolio/
+├─ public/                     # Imágenes públicas (favicon, og-image, etc.)
+├─ src/
+│  ├─ components/              # Componentes reutilizables del portfolio
+│  ├─ content/
+│  │  ├─ projects/             # Proyectos en formato MDX (cada tarjeta del portfolio)
+│  │  └─ blog/                 # Entradas del blog (si las añado)
+│  └─ layouts/                 # Layouts base para páginas
+├─ astro.config.mjs            # Configuración principal de Astro
+├─ package.json                # Dependencias y scripts (npm run dev, build, etc.)
+└─ README.md                   # Descripción del portfolio (este archivo)
+
 ---
 
 ## ▶️ Cómo ejecutar el portfolio en local
