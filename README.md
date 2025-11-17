@@ -81,3 +81,17 @@ npm install
 # 4. Levantar el entorno de desarrollo
 npm run dev
 # Luego abre http://localhost:4321 en tu navegador
+
+---
+
+## 🗺️ Roadmap & próximas mejoras
+
+Voy usando los **GitHub Issues** como sistema de roadmap y lista de tareas:
+
+- [Añadir secciones estándar](https://github.com/Nachomf112/Cybersecurity-IA-Portfolio/issues/5)
+- [Crear plantilla de nota en Markdown/MDX](https://github.com/Nachomf112/Cybersecurity-IA-Portfolio/issues/4)
+- [Blog / Notas de SOC y ciberseguridad (v1)](https://github.com/Nachomf112/Cybersecurity-IA-Portfolio/issues/3)
+- [Mejorar rendimiento y accesibilidad (Lighthouse)](https://github.com/Nachomf112/Cybersecurity-IA-Portfolio/issues/2)
+- [Roadmap v1 del portfolio](https://github.com/Nachomf112/Cybersecurity-IA-Portfolio/issues/1)
+
+> Si ves algo interesante o tienes feedback, puedes abrir un nuevo issue en el repositorio.
