@@ -106,7 +106,6 @@ Voy usando los **GitHub Issues** como sistema de roadmap y lista de tareas:
 Si estás buscando perfiles **Junior SOC / Blue Team / Ciberseguridad**,  
 puedes contactarme por LinkedIn o a través del formulario de contacto de mi portfolio.
 ---
----
 
 ## 🇬🇧 Quick summary (EN)
 
@@ -119,4 +118,8 @@ The website showcases:
 - A modern portfolio UI built with **Astro + Tailwind CSS**, deployed on **Vercel**.
 
 If you’re hiring for **Junior SOC / Blue Team / Cybersecurity** roles, feel free to reach out via LinkedIn or the contact form on the portfolio site.
+
+---
+También puedes seguir la evolución del portfolio en el roadmap público:
+[GitHub Issues del proyecto](https://github.com/Nachomf112/Cybersecurity-IA-Portfolio/issues).
 ---
