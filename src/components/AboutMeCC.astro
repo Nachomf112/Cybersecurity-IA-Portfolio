@@ -1,10 +1,10 @@
 ---
- // data imports
-import workExperience from "@/data/Jobs.ts";
-import education from "@/data/education.ts";
-import languages from "@/data/languages";
-import hardSkills from "@/data/hardSkills";
-import softSkills from "@/data/softSkills";
+// data imports
+import workExperience from "@/data/Jobs.ts"
+import education from "@/data/education.ts"
+import languages from "@/data/languages"
+import hardSkills from "@/data/hardSkills"
+import softSkills from "@/data/softSkills"
 
 // component imports
 import JobDetails from "./JobDetails.astro";
@@ -16,11 +16,9 @@ import { ME } from "@/config";
 ---
 
 <div class="relative flex flex-col gap-8 w-full mt-10 px-4 text-white">
-  {/* Description or About me -- Section */}
+  {/* Description / About me */}
   <div class="mb-4">
-    <p>
-      {ME.aboutMe}
-    </p>
+    <p>{ME.aboutMe}</p>
   </div>
 
   {/* Work experience section */}
@@ -46,14 +44,9 @@ import { ME } from "@/config";
   {/* Hard Skills section */}
   <div class="mb-4">
     <h2 class="text-3xl font-bold mb-4">Hard Skills</h2>
-    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
       {hardSkills.map((skill) => (
-        <SkillCard
-          icon={skill.icon}
-          name={skill.name}
-          description={skill.description}
-          showDescription={true}
-        />
+        <SkillCard {...skill} showDescription={true} />
       ))}
     </div>
   </div>
@@ -61,14 +54,9 @@ import { ME } from "@/config";
   {/* Soft Skills section */}
   <div class="mb-4">
     <h2 class="text-2xl font-bold mb-4">Soft Skills</h2>
-    <div class="grid gap-4 md:grid-cols-4">
+    <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
       {softSkills.map((skill) => (
-        <SkillCard
-          icon={skill.icon}
-          name={skill.name}
-          description={skill.description}
-          showDescription={false}
-        />
+        <SkillCard {...skill} showDescription={false} />
       ))}
     </div>
   </div>
