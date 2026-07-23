@@ -1,0 +1,46 @@
+---
+const website = "https://ai.menarguez-ia.com/";
+const linkedinUrl = "https://www.linkedin.com/in/ignaciomenarguezfernandez/";
+---
+<section class="mt-6 flex justify-center">
+  <div
+    class="w-full max-w-xl rounded-3xl border border-zinc-800 bg-zinc-950/70 px-6 py-6 shadow-xl"
+  >
+    <!-- Texto corto centrado -->
+    <p class="text-sm text-zinc-400 text-center mb-4">
+      Ciberseguridad · Blue Team · SOC · Automatización con Python/Bash
+    </p>
+    <!-- Botones principales -->
+    <div class="space-y-3">
+      <!-- Ver proyectos (web principal) -->
+      <a
+        href={website}
+        target="_blank"
+        rel="noreferrer"
+        class="flex items-center gap-3 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm font-medium text-emerald-200 hover:bg-emerald-500/20 transition"
+      >
+        <span class="text-lg">💻</span>
+        <span>Mi Web</span>
+      </a>
+      <!-- Chatbot IA -->
+      <button
+        type="button"
+        onclick="window.MenarguezChatbot && window.MenarguezChatbot.open()"
+        class="w-full flex items-center gap-3 rounded-xl border border-sky-500/40 bg-sky-500/10 px-4 py-3 text-sm font-medium text-sky-200 hover:bg-sky-500/20 transition"
+      >
+        <span class="text-lg">🤖</span>
+        <span>Hablar con mi asistente de IA</span>
+      </button>
+      <!-- Contactar por LinkedIn -->
+      <a
+        href={linkedinUrl}
+        target="_blank"
+        rel="noreferrer"
+        class="flex items-center gap-3 rounded-xl border border-indigo-500/40 bg-indigo-500/10 px-4 py-3 text-sm font-medium text-indigo-200 hover:bg-indigo-500/20 transition"
+      >
+        <span class="text-lg">📬</span>
+        <span>Contactar conmigo por LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</section>
