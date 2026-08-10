@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Demo — Asistente IA para Clínicas | Menarguez-IA Solutions"
+  description="Prueba en vivo un asistente de IA para clínicas dentales, construido con n8n y Claude API."
+  scrollSmooth={false}
+>
+  <main class="min-h-[70vh] flex flex-col items-center justify-center text-center px-6 py-16">
+    <span
+      class="inline-block rounded-full bg-yellow-400/10 border border-yellow-400/30 px-4 py-1 text-xs font-semibold tracking-wide text-yellow-300 uppercase mb-6"
+    >
+      Demo en vivo
+    </span>
+
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 max-w-2xl">
+      Así hablaría el asistente de IA de tu clínica
+    </h1>
+
+    <p class="text-sm md:text-base text-neutral-300 max-w-xl mb-8">
+      Esto es una demostración real de un agente construido con n8n + Claude API para clínicas
+      dentales. Pulsa la burbuja de chat abajo a la derecha y pruébalo como si fueras un paciente
+      preguntando por una cita.
+    </p>
+
+    
+      href="https://ai.menarguez-ia.com/"
+      class="inline-flex items-center justify-center rounded-full bg-yellow-400 px-6 py-2 text-sm font-semibold text-black hover:bg-yellow-300 transition-colors"
+    >
+      Quiero esto para mi clínica
+      <span class="ml-2">↗</span>
+    </a>
+  </main>
+</Layout>
+
+<script
+  src="/menarguez-chatbot-widget.js"
+  data-webhook="https://n8n.menarguez-ia.com/webhook/demo-clinica-chatbot"
+></script>
+
+<script>
+  // Abre el chat automáticamente para que el prospecto lo vea al instante
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      if ((window as any).MenarguezChatbot) (window as any).MenarguezChatbot.open();
+    }, 800);
+  });
+</script>
