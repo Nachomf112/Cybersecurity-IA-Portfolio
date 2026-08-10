@@ -50,8 +50,10 @@ _(Resumen rápido; se corresponde con los MDX de `src/content/projects`.)_
 
 - **Menárguez-CTF-Lab**  
   Laboratorio personal para documentar retos de CTF y ejercicios prácticos de ciberseguridad.
-  Demo — Agente IA para Clínicas
-Chatbot en vivo (n8n + Claude API) que simula la atención de una clínica dental real: cualifica al paciente, responde dudas y detecta leads calientes en tiempo real. Pruébalo en /demo-clínica.
+
+- **Demo en vivo — Agente IA para Clínicas**  
+  Chatbot funcional (n8n + Claude API) que simula la atención de una clínica dental real: cualifica al paciente, responde dudas y detecta leads calientes en tiempo real.  
+  👉 [Pruébalo aquí](https://cybersecurity-portfolio-ashy.vercel.app/demo-clinica)
 
 _Ajusto la lista si es necesario, añadiendo o quitando proyectos según lo que tenga en `src/content/projects`._
 
@@ -119,7 +121,7 @@ The website showcases:
 - A growing collection of tools like *Nmap Auto Reporter*, *AuthLog Auto Reporter* and AML / forensics experiments.
 - A modern portfolio UI built with **Astro + Tailwind CSS**, deployed on **Vercel**.
 
-If you’re hiring for **Junior SOC / Blue Team / Cybersecurity** roles, feel free to reach out via LinkedIn or the contact form on the portfolio site.
+If you're hiring for **Junior SOC / Blue Team / Cybersecurity** roles, feel free to reach out via LinkedIn or the contact form on the portfolio site.
 
 ---
 También puedes seguir la evolución del portfolio en el roadmap público:
