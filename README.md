@@ -50,6 +50,8 @@ _(Resumen rápido; se corresponde con los MDX de `src/content/projects`.)_
 
 - **Menárguez-CTF-Lab**  
   Laboratorio personal para documentar retos de CTF y ejercicios prácticos de ciberseguridad.
+  Demo — Agente IA para Clínicas
+Chatbot en vivo (n8n + Claude API) que simula la atención de una clínica dental real: cualifica al paciente, responde dudas y detecta leads calientes en tiempo real. Pruébalo en /demo-clínica.
 
 _Ajusto la lista si es necesario, añadiendo o quitando proyectos según lo que tenga en `src/content/projects`._
 
