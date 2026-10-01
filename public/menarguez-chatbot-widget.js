@@ -4,10 +4,25 @@
  *
  * USO: pega este script antes de </body> en tu web:
  * <script src="menarguez-chatbot-widget.js" data-webhook="https://TU-DOMINIO-N8N/webhook/menarguez-chatbot"></script>
+ *
+ * Atributos opcionales (si se omiten, se usan los valores de Menarguez-IA Solutions):
+ *   data-title     Titulo de la cabecera          (p. ej. "Clinica Dental Sonrisa")
+ *   data-subtitle  Subtitulo de la cabecera       (p. ej. "Asistente virtual")
+ *   data-avatar    Letra o texto corto del avatar (p. ej. "S")
+ *   data-greeting  Primer mensaje del asistente
  */
 (function () {
   const scriptTag = document.currentScript;
   const WEBHOOK_URL = scriptTag.getAttribute('data-webhook') || '';
+  const attr = (name, fallback) => {
+    const v = scriptTag.getAttribute(name);
+    return v && v.trim() ? v.trim() : fallback;
+  };
+  const TITLE = attr('data-title', 'Menarguez-IA Solutions');
+  const SUBTITLE = attr('data-subtitle', 'Asistente virtual');
+  const AVATAR = attr('data-avatar', 'A').slice(0, 2);
+  const GREETING = attr('data-greeting',
+    '¡Hola! Soy el asistente de Menarguez-IA Solutions. ¿En qué puedo ayudarte con la automatización de tu clínica o negocio?');
 
   if (!WEBHOOK_URL) {
     console.warn('[Menarguez-IA Widget] Falta el atributo data-webhook en el <script>.');
@@ -159,10 +174,10 @@
   root.innerHTML = `
     <div class="mia-panel" id="mia-panel">
       <div class="mia-header">
-        <div class="mia-avatar">A</div>
+        <div class="mia-avatar"></div>
         <div class="mia-header-text">
-          <div class="mia-header-title">Menarguez-IA Solutions</div>
-          <div class="mia-header-sub">Asistente virtual</div>
+          <div class="mia-header-title"></div>
+          <div class="mia-header-sub"></div>
         </div>
         <button class="mia-close" id="mia-close" aria-label="Cerrar chat">&times;</button>
       </div>
@@ -188,6 +203,12 @@
   `;
   document.body.appendChild(root);
 
+  // Textos personalizables: se asignan con textContent (nunca innerHTML) para no interpretar HTML.
+  root.querySelector('.mia-avatar').textContent = AVATAR;
+  root.querySelector('.mia-header-title').textContent = TITLE;
+  root.querySelector('.mia-header-sub').textContent = SUBTITLE;
+  root.querySelector('#mia-bubble').setAttribute('aria-label', 'Abrir chat con ' + TITLE);
+
   const bubble = root.querySelector('#mia-bubble');
   const panel = root.querySelector('#mia-panel');
   const closeBtn = root.querySelector('#mia-close');
@@ -201,7 +222,7 @@
     opened = !opened;
     panel.classList.toggle('mia-open', opened);
     if (opened && messagesEl.children.length === 0) {
-      addMessage('bot', '¡Hola! Soy el asistente de Menarguez-IA Solutions. ¿En qué puedo ayudarte con la automatización de tu clínica o negocio?');
+      addMessage('bot', GREETING);
     }
   }
 
